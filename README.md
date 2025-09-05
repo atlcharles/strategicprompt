@@ -1,1 +1,1 @@
-# strategicprompt
+# strategicprompt-extra
