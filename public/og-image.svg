@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FDF7EC"/>
+  <circle cx="320" cy="315" r="180" fill="#F5C542" stroke="#177E82" stroke-width="18"/>
+  <rect x="520" y="250" rx="28" ry="28" width="600" height="130" fill="#ffffff" stroke="#177E82" stroke-width="12"/>
+  <text x="550" y="330" font-family="Roboto Slab, Georgia, serif" font-size="64" fill="#177E82" font-weight="800">Strategic Prompt</text>
+</svg>

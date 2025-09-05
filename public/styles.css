@@ -1,0 +1,40 @@
+:root{
+  --teal:#177E82;
+  --teal-700:#116369;
+  --teal-300:#36BFB4;
+  --yellow:#F5C542;
+  --cream:#FDF7EC;
+  --ink:#2B2B2B;
+  --shadow:0 12px 40px rgba(0,0,0,.12);
+  --radius-xl:22px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+}
+.page{display:grid;grid-template-rows:auto 1fr auto;min-height:100dvh;}
+header{padding:20px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+header .wordmark{font-family:'Roboto Slab',serif;font-weight:800;letter-spacing:.2px;font-size:clamp(20px,3vw,28px);display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);}
+.mini-pill{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;border:2px solid var(--teal);box-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 2px 0 rgba(0,0,0,.05);font-size:12px;color:var(--teal);background:#fff;}
+.hero{padding:clamp(28px,6vw,64px) clamp(20px,4vw,48px) 80px;display:grid;place-items:center;text-align:center;position:relative;}
+.badge{position:relative;width:min(680px,90vw);aspect-ratio:16/10;display:grid;place-items:center;margin-inline:auto;}
+.badge__circle{position:absolute;width:min(440px,70%);aspect-ratio:1/1;border-radius:50%;background: radial-gradient(120% 120% at 30% 25%, #FFD86A 0%, var(--yellow) 48%, #E5AE22 100%);box-shadow: 0 0 0 8px var(--teal), 0 0 60px rgba(23,126,130,.35);z-index:1;}
+.badge__logo-man{position:absolute;z-index:2;width:min(310px,52%);transform: translateY(-6%);object-fit:contain;pointer-events:none;user-select:none;}
+.badge__prompt{position:relative;z-index:3;display:inline-flex;align-items:center;justify-content:center;padding:clamp(14px,2.1vw,18px) clamp(22px,3.6vw,36px);border-radius: var(--radius-xl);border:4px solid var(--teal);background:#fff;box-shadow:0 0 0 6px rgba(23,126,130,.08),0 18px 44px rgba(0,0,0,.18),0 0 28px rgba(23,126,130,.38) inset;font-family:'Roboto Slab',serif;font-weight:800;font-size:clamp(24px,4.2vw,42px);color:var(--teal);}
+.hero h1{margin:24px 0 10px;font-family:'Roboto Slab',serif;font-weight:800;font-size:clamp(28px,4.8vw,54px);line-height:1.05;}
+.hero p{margin:0 auto;max-width:840px;font-size:clamp(16px,2.1vw,20px);color:#3a3a3a;}
+.cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.btn{border:none;background:var(--teal);color:#fff;font-weight:700;padding:14px 20px;border-radius:12px;box-shadow:var(--shadow);text-decoration:none;}
+.btn.secondary{background:#fff;color:var(--teal);border:2px solid var(--teal);}
+section{padding:56px clamp(20px,4vw,48px);}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(12,minmax(0,1fr));max-width:1200px;margin-inline:auto;}
+.card{grid-column: span 12;border:2px solid var(--teal);background:#fff;border-radius:18px;padding:24px;box-shadow:0 2px 0 rgba(0,0,0,.05), 0 18px 44px rgba(0,0,0,.06);}
+@media (min-width:860px){.card{grid-column: span 4;}}
+.card h3{margin:0 0 6px;font-family:'Roboto Slab',serif;font-size:22px;color:var(--teal);}
+.card p{margin:0;color:#444;}
+footer{padding:30px clamp(20px,4vw,48px) 48px;color:#4b4b4b;text-align:center;}
+a:focus-visible,button:focus-visible{outline:3px solid var(--teal-300);outline-offset:2px;border-radius:10px;}
