@@ -6,7 +6,6 @@
   <title>Strategic Prompt — Prompt Your Strategy</title>
   <meta name="description" content="Strategic Prompt is a digital-first brand exploring the art of AI prompting—playful experiments, practical frameworks, and tools that help you make the next move." />
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Strategic Prompt — Prompt Your Strategy" />
   <meta property="og:description" content="AI prompting, creativity, and strategy. Prompt your next move." />
   <meta property="og:type" content="website" />
@@ -15,8 +14,8 @@
   <meta name="twitter:title" content="Strategic Prompt — Prompt Your Strategy" />
   <meta name="twitter:description" content="AI prompting, creativity, and strategy. Prompt your next move." />
   <meta name="twitter:image" content="./og-image.svg" />
-
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Slab:wght@400;600;800&display=swap" rel="stylesheet">
@@ -25,24 +24,18 @@
 <body>
   <div class="page">
     <header>
-      <a class="wordmark" href="./">
-        Strategic Prompt
-        <span class="mini-pill">AI • Prompts</span>
+      <!-- Compact brand pill -->
+      <a class="brand-pill" href="./" aria-label="Strategic Prompt home">
+        <span>Strategic&nbsp;Prompt</span>
       </a>
-      <nav aria-label="Primary">
-        <a class="mini-pill" href="#subscribe">Subscribe</a>
-      </nav>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="badge" aria-hidden="true">
-          <div class="badge__circle"></div>
-
-          <!-- Optional Logo Man image (transparent PNG) -->
-          <img class="badge__logo-man" src="./assets/logo-man.png" alt="" onerror="this.style.display='none'">
-
-          <!-- Prompt field badge with company name -->
+          <!-- Logo Man graphic -->
+          <img class="badge__logo-man" src="./assets/logo-man.png" alt="Strategic Prompt logo character">
+          <!-- Prompt field badge -->
           <div class="badge__prompt" role="img" aria-label="Strategic Prompt">
             Strategic&nbsp;Prompt
           </div>
@@ -52,9 +45,22 @@
         <p>We’re a digital-first brand exploring the art of AI prompting—playful experiments, practical frameworks, and tools that help you make the next move.</p>
 
         <div class="cta" id="subscribe">
-          <a class="btn" href="mailto:hello@strategicprompt.com?subject=Subscribe%20me">Join the list</a>
-          <a class="btn secondary" href="#" aria-label="View our latest prompts">See latest prompts</a>
+          <!-- Fillout popup trigger -->
+          <button id="joinBtn" class="btn">Join the list</button>
         </div>
+
+        <!-- Fillout embed -->
+        <div
+          data-fillout-id="djGxQa29F3us"
+          data-fillout-embed-type="popup"
+          data-fillout-inherit-parameters
+          data-fillout-dynamic-resize
+          data-fillout-button="#joinBtn">
+        </div>
+        <script src="https://server.fillout.com/embed/v1/"></script>
+        <noscript>
+          <p><a class="btn secondary" href="mailto:hello@strategicprompt.com?subject=Subscribe%20me">Join via email</a></p>
+        </noscript>
       </section>
 
       <section aria-label="What we do">
@@ -76,11 +82,12 @@
     </main>
 
     <footer>
-      © <span id="year"></span> Strategic Prompt • Made on the internet.<br />
-      <small>Font: Roboto Slab &amp; Inter • Colors: Teal &amp; Golden Yellow on Cream</small>
+      © <span id="year"></span> Strategic Prompt • Made with strategic prompts.
     </footer>
   </div>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
