@@ -1,1 +1,0 @@
-# strategicprompt-extra
