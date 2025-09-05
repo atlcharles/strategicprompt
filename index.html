@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Strategic Prompt — Prompt Your Strategy</title>
+  <title>Strategic Prompt — AI Prompt Strategies that Work</title>
   <meta name="description" content="Strategic Prompt is a digital-first brand exploring the art of AI prompting—playful experiments, practical frameworks, and tools that help you make the next move." />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Strategic Prompt — Prompt Your Strategy" />
+  <meta property="og:title" content="Strategic Prompt — AI Prompt Strategies that Work" />
   <meta property="og:description" content="AI prompting, creativity, and strategy. Prompt your next move." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="./og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Strategic Prompt — Prompt Your Strategy" />
+  <meta name="twitter:title" content="Strategic Prompt — AI Prompt Strategies that Work" />
   <meta name="twitter:description" content="AI prompting, creativity, and strategy. Prompt your next move." />
   <meta name="twitter:image" content="./og-image.svg" />
 
@@ -38,12 +38,12 @@
           <img
             class="badge__logo-man"
             src="./assets/logo-man.png"
-            alt="Strategic Prompt mascot: an ultra-realistic wooden robot chess pawn with a friendly smile, centered above the headline."
+            alt="Artie, the Strategic Prompt mascot: an ultra-realistic wooden robot chess pawn with a friendly smile, holding up a glowing prompt field that reads ‘Prompt your strategy.’"
             width="480" height="480"
             loading="eager" decoding="async">
         </div>
 
-        <h1 id="hero-title">Prompt your strategy.</h1>
+        <h1 id="hero-title">AI Prompt Strategies that Work</h1>
         <p>We’re a digital-first brand exploring the art of AI prompting—playful experiments, practical frameworks, and tools that help you make the next move.</p>
 
         <div class="cta" id="subscribe">
@@ -51,19 +51,6 @@
             Join the list
           </button>
         </div>
-
-        <!-- Fillout popup: initialized on our button -->
-        <script
-          src="https://server.fillout.com/embed/v1/"
-          defer
-          onload="window.Fillout && window.Fillout.embed({
-            formId: 'djGxQa29F3us',
-            type: 'popup',
-            button: '#joinBtn',
-            inheritParameters: true,
-            dynamicResize: true
-          });">
-        </script>
 
         <noscript>
           <p><a class="btn secondary" href="mailto:hello@strategicprompt.com?subject=Subscribe%20me">Join via email</a></p>
@@ -93,8 +80,23 @@
     </footer>
   </div>
 
+  <!-- Load Fillout embed script -->
+  <script src="https://server.fillout.com/embed/v1/"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Attach Fillout popup to Join button
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.Fillout) {
+        window.Fillout.embed({
+          formId: 'djGxQa29F3us',
+          type: 'popup',
+          button: '#joinBtn',
+          inheritParameters: true,
+          dynamicResize: true
+        });
+      }
+    });
   </script>
 </body>
 </html>
