@@ -6,6 +6,7 @@
   <title>Strategic Prompt — Prompt Your Strategy</title>
   <meta name="description" content="Strategic Prompt is a digital-first brand exploring the art of AI prompting—playful experiments, practical frameworks, and tools that help you make the next move." />
 
+  <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Strategic Prompt — Prompt Your Strategy" />
   <meta property="og:description" content="AI prompting, creativity, and strategy. Prompt your next move." />
   <meta property="og:type" content="website" />
@@ -14,8 +15,8 @@
   <meta name="twitter:title" content="Strategic Prompt — Prompt Your Strategy" />
   <meta name="twitter:description" content="AI prompting, creativity, and strategy. Prompt your next move." />
   <meta name="twitter:image" content="./og-image.svg" />
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Slab:wght@400;600;800&display=swap" rel="stylesheet">
@@ -34,26 +35,35 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="badge" aria-hidden="true">
           <!-- Logo Man graphic only -->
-          <img class="badge__logo-man" src="./assets/logo-man.png" alt="Strategic Prompt logo character">
+          <img
+            class="badge__logo-man"
+            src="./assets/logo-man.png"
+            alt="Strategic Prompt mascot: an ultra-realistic wooden robot chess pawn with a friendly smile, centered above the headline."
+            width="480" height="480"
+            loading="eager" decoding="async">
         </div>
 
         <h1 id="hero-title">Prompt your strategy.</h1>
         <p>We’re a digital-first brand exploring the art of AI prompting—playful experiments, practical frameworks, and tools that help you make the next move.</p>
 
         <div class="cta" id="subscribe">
-          <!-- Fillout popup trigger -->
-          <button id="joinBtn" class="btn">Join the list</button>
+          <button id="joinBtn" class="btn" aria-haspopup="dialog">
+            Join the list
+          </button>
         </div>
 
-        <!-- Fillout popup config: no default "open form" button -->
-        <div
-          data-fillout-id="djGxQa29F3us"
-          data-fillout-embed-type="popup"
-          data-fillout-inherit-parameters
-          data-fillout-dynamic-resize
-          data-fillout-button="#joinBtn">
-        </div>
-        <script src="https://server.fillout.com/embed/v1/"></script>
+        <!-- Fillout popup: initialized on our button -->
+        <script
+          src="https://server.fillout.com/embed/v1/"
+          defer
+          onload="window.Fillout && window.Fillout.embed({
+            formId: 'djGxQa29F3us',
+            type: 'popup',
+            button: '#joinBtn',
+            inheritParameters: true,
+            dynamicResize: true
+          });">
+        </script>
 
         <noscript>
           <p><a class="btn secondary" href="mailto:hello@strategicprompt.com?subject=Subscribe%20me">Join via email</a></p>
