@@ -21,6 +21,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Slab:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
+  <style>
+    /* Fullscreen Fillout overlay */
+    .fillout-overlay {
+      position: fixed; inset: 0; display: none;
+      background: rgba(0,0,0,.6);
+      z-index: 9999;
+    }
+    .fillout-sheet {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      background: #fff;
+    }
+    .fillout-close {
+      position: fixed; top: 14px; right: 14px;
+      background: #fff; border: 2px solid #177E82; color: #177E82;
+      border-radius: 10px; padding: 8px 12px; font-weight: 700;
+      cursor: pointer; z-index: 10000;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    }
+    .fillout-viewport {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -47,7 +69,7 @@
         <p>We’re a digital-first brand exploring the art of AI prompting—playful experiments, practical frameworks, and tools that help you make the next move.</p>
 
         <div class="cta" id="subscribe">
-          <button id="joinBtn" class="btn" aria-haspopup="dialog">
+          <button id="joinBtn" class="btn" aria-haspopup="dialog" aria-controls="subscribe-overlay">
             Join the list
           </button>
         </div>
@@ -80,22 +102,46 @@
     </footer>
   </div>
 
-  <!-- Load Fillout embed script -->
+  <!-- Fullscreen Fillout overlay (hidden until opened) -->
+  <div class="fillout-overlay" id="subscribe-overlay" role="dialog" aria-modal="true" aria-label="Subscribe form">
+    <button class="fillout-close" type="button" id="closeOverlay" aria-label="Close subscribe form">✕ Close</button>
+    <div class="fillout-sheet">
+      <div
+        class="fillout-viewport"
+        data-fillout-id="djGxQa29F3us"
+        data-fillout-embed-type="fullscreen"
+        data-fillout-inherit-parameters>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fillout script (load once) -->
   <script src="https://server.fillout.com/embed/v1/"></script>
   <script>
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Attach Fillout popup to Join button
-    document.addEventListener("DOMContentLoaded", function () {
-      if (window.Fillout) {
-        window.Fillout.embed({
-          formId: 'djGxQa29F3us',
-          type: 'popup',
-          button: '#joinBtn',
-          inheritParameters: true,
-          dynamicResize: true
-        });
-      }
+    // Overlay open/close
+    const overlay = document.getElementById('subscribe-overlay');
+    const openBtn = document.getElementById('joinBtn');
+    const closeBtn = document.getElementById('closeOverlay');
+
+    function openOverlay() {
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeOverlay() {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openOverlay);
+    closeBtn.addEventListener('click', closeOverlay);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeOverlay();
+    });
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeOverlay();
     });
   </script>
 </body>
