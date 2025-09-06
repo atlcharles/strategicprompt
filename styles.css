@@ -78,3 +78,16 @@ footer{padding:30px clamp(20px,4vw,48px) 48px;color:#4b4b4b;text-align:center}
 a:focus-visible,button:focus-visible{
   outline:3px solid var(--teal-300);outline-offset:2px;border-radius:10px
 }
+
+.toc {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 12px;
+}
+.toc h2 { font-family: "Roboto Slab", serif; margin-top: 0; }
+.toc ol { padding-left: 1.25rem; }
+.toc a { color: var(--teal); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
