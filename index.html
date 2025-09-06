@@ -34,11 +34,11 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="badge" aria-hidden="true">
-          <!-- Logo Man graphic only -->
+          <!-- Artie mascot -->
           <img
             class="badge__logo-man"
             src="./assets/logo-man.png"
-            alt="Artie, the Strategic Prompt mascot: an ultra-realistic wooden robot chess pawn with a friendly smile, holding up a glowing prompt field that reads ‘Prompt your strategy.’"
+            alt="Artie, the Strategic Prompt mascot—an ultra-realistic wooden robot chess pawn with a friendly smile, holding up a glowing prompt field that reads ‘Prompt your strategy.’"
             width="480" height="480"
             loading="eager" decoding="async">
         </div>
@@ -46,15 +46,13 @@
         <h1 id="hero-title">AI Prompt Strategies that Work</h1>
         <p>We’re a digital-first brand exploring the art of AI prompting—playful experiments, practical frameworks, and tools that help you make the next move.</p>
 
-        <div class="cta" id="subscribe">
-          <button id="joinBtn" class="btn" aria-haspopup="dialog" aria-controls="subscribe-overlay">
+        <div class="cta">
+          <a href="https://forms.fillout.com/t/djGxQa29F3us"
+             target="_blank" rel="noopener"
+             class="btn">
             Join the list
-          </button>
+          </a>
         </div>
-
-        <noscript>
-          <p><a class="btn secondary" href="mailto:hello@strategicprompt.com?subject=Subscribe%20me">Join via email</a></p>
-        </noscript>
       </section>
 
       <section aria-label="What we do">
@@ -101,7 +99,7 @@
             <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.6 0 3 1.4 3 3v10c0 1.6-1.4 3-3 3H7c-1.6 0-3-1.4-3-3V7c0-1.6 1.4-3 3-3h10zm-5 3.3A5.7 5.7 0 1 0 17.7 13 5.7 5.7 0 0 0 12 7.3zm0 2A3.7 3.7 0 1 1 8.3 13 3.7 3.7 0 0 1 12 9.3zM18.4 5.6a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6z"/>
           </svg>
         </a>
-        <!-- Threads (clean glyph) -->
+        <!-- Threads -->
         <a href="https://www.threads.com/@strategicprompt" target="_blank" aria-label="Threads">
           <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
             <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.323 10.385c-.134-1.377-.739-2.41-1.81-3.077-.627-.389-1.42-.62-2.36-.69v-1.3h-1.5v1.31c-2.91.25-4.53 1.98-4.53 4.68 0 2.86 1.88 4.63 4.94 4.63 1.33 0 2.45-.27 3.33-.8.93-.56 1.56-1.38 1.85-2.41l-1.62-.4c-.45 1.35-1.6 2.02-3.38 2.02-2.13 0-3.43-1.1-3.43-2.94 0-1.72 1.16-2.76 3.37-2.93v1.72h1.5V8.83c1.33.12 2.27.53 2.86 1.22.53.61.81 1.43.86 2.47h-1.8z"/>
@@ -118,53 +116,8 @@
     </footer>
   </div>
 
-  <!-- Fullscreen Fillout overlay (lazy mounted) -->
-  <div class="fillout-overlay" id="subscribe-overlay" role="dialog" aria-modal="true" aria-label="Subscribe form">
-    <button class="fillout-close" type="button" id="closeOverlay" aria-label="Close subscribe form">✕ Close</button>
-    <div class="fillout-sheet">
-      <!-- Empty mount; embed injected on click -->
-      <div id="filloutMount" class="fillout-viewport"></div>
-    </div>
-  </div>
-
-  <!-- Fillout script (once) -->
-<script src="https://server.fillout.com/embed/v1/"></script>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  const overlay = document.getElementById('subscribe-overlay');
-  const openBtn = document.getElementById('joinBtn');
-  const closeBtn = document.getElementById('closeOverlay');
-  const mount = document.getElementById('filloutMount');
-  let mounted = false;
-
-  function openOverlay() {
-    overlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-
-    // Mount ONCE as a standard (iframe) embed that fills the overlay
-    if (!mounted && window.Fillout) {
-      window.Fillout.embed({
-        formId: 'djGxQa29F3us',
-        type: 'standard',          // ⟵ switch from 'fullscreen' to 'standard'
-        container: '#filloutMount',// ⟵ mount inside our overlay
-        inheritParameters: true,
-        dynamicResize: true
-      });
-      mounted = true;
-    }
-  }
-
-  function closeOverlay() {
-    overlay.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  openBtn.addEventListener('click', openOverlay);
-  closeBtn.addEventListener('click', closeOverlay);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeOverlay(); });
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeOverlay(); });
-</script>
-
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
