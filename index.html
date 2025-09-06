@@ -128,42 +128,43 @@
   </div>
 
   <!-- Fillout script (once) -->
-  <script src="https://server.fillout.com/embed/v1/"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script src="https://server.fillout.com/embed/v1/"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    const overlay = document.getElementById('subscribe-overlay');
-    const openBtn = document.getElementById('joinBtn');
-    const closeBtn = document.getElementById('closeOverlay');
-    const mount = document.getElementById('filloutMount');
-    let mounted = false;
+  const overlay = document.getElementById('subscribe-overlay');
+  const openBtn = document.getElementById('joinBtn');
+  const closeBtn = document.getElementById('closeOverlay');
+  const mount = document.getElementById('filloutMount');
+  let mounted = false;
 
-    function openOverlay() {
-      overlay.style.display = 'block';
-      document.body.style.overflow = 'hidden';
+  function openOverlay() {
+    overlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
 
-      // Mount Fillout only once, when the overlay opens
-      if (!mounted && window.Fillout) {
-        window.Fillout.embed({
-          formId: 'djGxQa29F3us',
-          type: 'fullscreen',
-          container: '#filloutMount',
-          inheritParameters: true,
-          dynamicResize: true
-        });
-        mounted = true;
-      }
+    // Mount ONCE as a standard (iframe) embed that fills the overlay
+    if (!mounted && window.Fillout) {
+      window.Fillout.embed({
+        formId: 'djGxQa29F3us',
+        type: 'standard',          // ⟵ switch from 'fullscreen' to 'standard'
+        container: '#filloutMount',// ⟵ mount inside our overlay
+        inheritParameters: true,
+        dynamicResize: true
+      });
+      mounted = true;
     }
+  }
 
-    function closeOverlay() {
-      overlay.style.display = 'none';
-      document.body.style.overflow = '';
-    }
+  function closeOverlay() {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
 
-    openBtn.addEventListener('click', openOverlay);
-    closeBtn.addEventListener('click', closeOverlay);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeOverlay(); });
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeOverlay(); });
-  </script>
+  openBtn.addEventListener('click', openOverlay);
+  closeBtn.addEventListener('click', closeOverlay);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeOverlay(); });
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeOverlay(); });
+</script>
+
 </body>
 </html>
